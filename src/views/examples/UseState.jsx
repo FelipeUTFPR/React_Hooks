@@ -8,6 +8,8 @@ const UseState = (props) => {
 //useState recebe no parâmetro o valor inicial do estado, que é  zero '0'
 //não consigo alterar o valor de count diretamente, preciso usar a função setCount
     const [count, setCount] = useState(0)
+    const[name,setName] = useState("")
+
   return (
     <div className="UseState">
       <PageTitle
@@ -34,8 +36,17 @@ const UseState = (props) => {
       </div>
 
       
+{/* não é possível alterar o estado a partir da interface,
+a unica forma de fazer isso é capturando um evento */}
 
+{/* O Evento é gerado, o Estado é alterado, o estado alterando é feito uma atualização na interface gráfica */}
       <SectionTitle title="Exercício #02" />
+      <input type="text" className="input"
+        value={name} onChange={ e => setName(e.target.value)}
+      />
+
+      <span className="text">{name}</span>
+
     </div>
   );
 };
