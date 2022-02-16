@@ -4,6 +4,7 @@ import { BrowserRouter as Router } from  'react-router-dom'
 
 import Menu from '../components/layout/Menu'
 import Content from '../components/layout/Content'
+import Store from '../data/Store'
 
 //importou o contexto no componente de mais alto nível, componente raiz
 import DataContext, {data} from '../data/DataContext'
@@ -12,9 +13,9 @@ const App = props => {
 const[state,setState] = useState(data)
 
     return (
-        //quando o contexto for inicializado aqui, é este valor que será passado para todos os componentes " value={{state,setState}}"
+<Store>
 
-        <DataContext.Provider value={{state,setState}}>
+<DataContext.Provider value={{state,setState}}>
     <div className="App">
                     <Router>
                         <Menu />
@@ -22,6 +23,8 @@ const[state,setState] = useState(data)
                     </Router>
                 </div>
                 </DataContext.Provider>
+</Store>
+        
     )
     
                 
